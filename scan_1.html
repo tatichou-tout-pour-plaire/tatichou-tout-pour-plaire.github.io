@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tatichou">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tatichou-tout-pour-plaire.github.io/scan.html">
+    <meta property="og:title" content="Tatichou - Tout pour plaire">
+    <meta property="og:description" content="🎁Cadeaux et coffrets sur mesure🌿Senteurs douces, bien-être sain 👩‍❤️‍👩 Adaptés aux plus sensibles🏠Maison,voiture,corps,en toute saisonTout pour plaire ☎️775212101">
+    <meta property="og:image" content="https://tatichou-tout-pour-plaire.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tatichou-tout-pour-plaire.github.io/scan.html">
+    <meta name="twitter:title" content="Tatichou - Tout pour plaire">
+    <meta name="twitter:description" content="🎁Cadeaux et coffrets sur mesure🌿Senteurs douces, bien-être sain 👩‍❤️‍👩 Adaptés aux plus sensibles🏠Maison,voiture,corps,en toute saisonTout pour plaire ☎️775212101">
+    <meta name="twitter:image" content="https://tatichou-tout-pour-plaire.github.io/og-image.png">
+    
+    <!-- WhatsApp -->
+    <meta property="og:site_name" content="Tatichou">
+    <meta property="og:locale" content="fr_FR">
+    
+    <title>Tatichou - Tout pour plaire</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, 
+                #FFF8F0 0%,
+                #FFE8E0 20%,
+                #FFD5C8 40%,
+                #F5E6D3 60%,
+                #E8D4C0 80%,
+                #D4C5B0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .business-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 
+                0 20px 60px rgba(218, 165, 32, 0.15),
+                0 0 0 1px rgba(218, 165, 32, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            position: relative;
+            animation: logoEntrance 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(218, 165, 32, 0.12) 0%, transparent 70%);
+            animation: logoGlow 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .logo-container img {
+            width: 280px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 20px rgba(218, 165, 32, 0.25));
+            animation: logoFloat 6s ease-in-out infinite, logoShine 8s ease-in-out infinite;
+        }
+
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg) translateY(-50px);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.1) rotate(2deg) translateY(0);
+            }
+            100% {
+                transform: scale(1) rotate(0deg) translateY(0);
+            }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+
+        @keyframes logoShine {
+            0%, 100% {
+                filter: drop-shadow(0 4px 20px rgba(218, 165, 32, 0.25)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 6px 30px rgba(218, 165, 32, 0.4)) brightness(1.05);
+            }
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .contact-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        .contact-number {
+            font-size: 28px;
+            color: #B8860B;
+            font-weight: 700;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-number .phone-icon {
+            font-size: 26px;
+            animation: phoneRing 2s ease-in-out infinite;
+        }
+
+        @keyframes phoneRing {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-15deg); }
+            20% { transform: rotate(15deg); }
+            30% { transform: rotate(-15deg); }
+            40% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        .contact-number a {
+            color: #B8860B !important;
+            text-decoration: none !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .contact-number a:hover {
+            color: #DAA520 !important;
+            transform: scale(1.05);
+            text-shadow: 0 2px 10px rgba(218, 165, 32, 0.3);
+        }
+
+        .contact-number a:active {
+            transform: scale(0.98);
+        }
+
+        .contact-email {
+            font-size: 16px;
+            color: #DAA520;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: #B8860B;
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .social-link.whatsapp {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(37, 211, 102, 0.06));
+            color: #25D366;
+            border-color: rgba(37, 211, 102, 0.2);
+        }
+
+        .social-link.whatsapp:hover {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.12));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.15);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.12), rgba(193, 53, 132, 0.06));
+            color: #E1306C;
+            border-color: rgba(225, 48, 108, 0.2);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.2), rgba(193, 53, 132, 0.12));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(225, 48, 108, 0.15);
+        }
+
+        .social-link.tiktok {
+            background: linear-gradient(135deg, rgba(255, 0, 80, 0.12), rgba(0, 242, 234, 0.06));
+            color: #FF0050;
+            border-color: rgba(255, 0, 80, 0.2);
+        }
+
+        .social-link.tiktok:hover {
+            background: linear-gradient(135deg, rgba(255, 0, 80, 0.2), rgba(0, 242, 234, 0.12));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 0, 80, 0.15);
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(24, 119, 242, 0.06));
+            color: #1877F2;
+            border-color: rgba(24, 119, 242, 0.2);
+        }
+
+        .social-link.facebook:hover {
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.2), rgba(24, 119, 242, 0.12));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(24, 119, 242, 0.15);
+        }
+
+        .social-icon {
+            font-size: 18px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: slideUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 18px 30px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-tertiary {
+            background: rgba(255, 165, 0, 0.08);
+            color: #DAA520;
+            border: 2px solid rgba(255, 165, 0, 0.25);
+        }
+
+        .btn-tertiary:hover {
+            background: rgba(255, 165, 0, 0.15);
+            border-color: rgba(255, 165, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, #DAA520, #FFA500);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(218, 165, 32, 0.3);
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .install-prompt {
+            width: 100%;
+            background: rgba(218, 165, 32, 0.08);
+            border: 2px solid rgba(218, 165, 32, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            color: #B8860B;
+            font-size: 14px;
+            line-height: 1.6;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .install-prompt.show {
+            display: block;
+        }
+
+        .install-prompt strong {
+            color: #DAA520;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .install-prompt ul {
+            margin: 10px 0 0 20px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .business-card {
+                padding: 40px 20px;
+                gap: 25px;
+            }
+
+            .logo-container img {
+                width: 220px;
+            }
+
+            .contact-number {
+                font-size: 24px;
+            }
+
+            .contact-email {
+                font-size: 14px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-link {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+
+            .btn {
+                padding: 16px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message" id="successMessage">
+        ✓ Contact enregistré avec succès!
+    </div>
+
+    <div class="business-card">
+        <div class="logo-container">
+            <img src="logo-tatichou.png" alt="Tatichou - Tout pour plaire">
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-number">
+                <span class="phone-icon">📞</span>
+                <a href="tel:+221775210101">(+221) 77 521 01 01</a>
+            </div>
+            <a href="/cdn-cgi/l/email-protection#a2c0dbd6c3d6cbc1cacdd7e2c5cfc3cbce8cc1cdcf" class="contact-email"><span class="__cf_email__" data-cfemail="aac8d3decbdec3c9c2c5dfeacdc7cbc3c684c9c5c7">[email&#160;protected]</span></a>
+            
+            <div class="social-links">
+                <a href="https://wa.me/221775210101" target="_blank" class="social-link whatsapp">
+                    <span class="social-icon">💬</span>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/tatichou221" target="_blank" class="social-link instagram">
+                    <span class="social-icon">📷</span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@tatichou221" target="_blank" class="social-link tiktok">
+                    <span class="social-icon">🎵</span>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.facebook.com/share/1BdMhftwmH/" target="_blank" class="social-link facebook">
+                    <span class="social-icon">📘</span>
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-tertiary" id="saveContactBtn">
+                <span class="icon">📱</span>
+                <span>Enregistrer le Contact</span>
+            </button>
+            
+            <button class="btn btn-tertiary" id="addToHomeBtn">
+                <span class="icon">📲</span>
+                <span>Ajouter la Carte à l'Écran</span>
+            </button>
+            
+            <button class="btn btn-tertiary" id="shareBtn">
+                <span class="icon">🔗</span>
+                <span>Partager la Carte</span>
+            </button>
+        </div>
+
+        <div class="install-prompt" id="installPrompt">
+            <strong>📲 Pour ajouter à votre écran d'accueil:</strong>
+            <ul>
+                <li><strong>iOS:</strong> Appuyez sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong></li>
+                <li><strong>Android:</strong> Appuyez sur <strong>Menu</strong> puis <strong>Ajouter à l'écran d'accueil</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Fonction pour télécharger la vCard
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Tatichou
+TEL;TYPE=CELL:+221775210101
+EMAIL:bytatichou@gmail.com
+URL:https://www.instagram.com/tatichou221
+NOTE:Tout pour plaire - Institut de beauté
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Tatichou.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+
+            // Afficher le message de succès
+            showSuccessMessage('✓ Contact enregistré avec succès!');
+        }
+
+        // Fonction pour afficher l'astuce
+        function addToHomeScreen() {
+            const installPrompt = document.getElementById('installPrompt');
+            installPrompt.classList.add('show');
+            
+            // Scroll vers l'astuce
+            installPrompt.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Fonction pour aller vers la page avec QR code et options de partage
+        function shareCard() {
+            // Rediriger vers la page 1 avec paramètre pour afficher les options
+            const indexUrl = window.location.origin + window.location.pathname.replace('scan.html', '') + 'index.html?share=true';
+            window.location.href = indexUrl;
+        }
+
+        // Fonction pour afficher le message de succès
+        function showSuccessMessage(message) {
+            const messageEl = document.getElementById('successMessage');
+            messageEl.textContent = message;
+            messageEl.classList.add('show');
+            setTimeout(function() {
+                messageEl.classList.remove('show');
+            }, 3000);
+        }
+
+        // Event listeners - Attachés APRÈS le chargement du DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('saveContactBtn').addEventListener('cli
